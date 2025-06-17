@@ -1,0 +1,32 @@
+*{
+    border: 0;
+    padding: 0;
+}
+
+.option{
+    display: flexbox;
+    border: 2px solid salmon;
+    border-radius: 10px;
+    text-align: center;
+    padding: 75px;
+    flex: 1;
+    object-fit:cover;
+    margin: 10px;
+    transition-timing-function: ease;
+    transition-duration: 0.3s;
+}
+.image{
+    width: 35vw;
+    height: 35vh;
+}
+
+.qset{
+    border: 2px solid salmon;
+    background-color: aquamarine;
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.option:hover{
+    transform:translateY(-7px);
+}
