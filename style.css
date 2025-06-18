@@ -1,6 +1,50 @@
 *{
     border: 0;
     padding: 0;
+
+}
+
+p{
+    font-size: large;
+}
+
+
+.title-page{
+    display: block;
+}
+
+.title{
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 100px;
+    background-color: aqua;
+    padding: 0.4em ;
+    display:flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.filler{
+    height: 200px;
+    width: 200px;
+    position:absolute;
+}
+
+.startbutton{
+    font-family: 'Comic Sans MS', cursive;
+    font-size: xx-large;
+    color:blue;
+    background-color: bisque;
+    padding: 0.4em ;
+
+    position: absolute;
+    top: 500px;
+    left: 45vw;
+}
+
+.question{
+    display: block;
+    font-family: comic sans-serif;
+    margin: 10px;
 }
 
 .option{
@@ -15,6 +59,18 @@
     transition-timing-function: ease;
     transition-duration: 0.3s;
 }
+
+.submit{
+    position: absolute;
+    top: 3vh;
+    right: 1.5vw;
+    font-size: larger;
+    padding: 1em;
+    background-color: red;
+    color: white;
+    border: 0.2em solid black;
+}
+
 .image{
     width: 35vw;
     height: 35vh;
@@ -23,10 +79,55 @@
 .qset{
     border: 2px solid salmon;
     background-color: aquamarine;
-    display:flex;
+    display:none;
+    /*in order to hide option*/ 
     justify-content: space-evenly;
+    /*
+    animation-name: shrink;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    */
+}
+
+.qset1{
+    display:none;
+    /*animation: shrink 2s ease;*/
+}
+
+.qset2{
+    display:none;
 }
 
 .option:hover{
     transform:translateY(-7px);
 }
+
+.textbox{
+    display: block;
+    max-width: 30vw;
+    font-size: 5px;
+}
+
+
+
+
+.result-page{
+display: none;
+}
+
+
+
+
+
+
+@keyframes shrink
+{
+    0%{
+        transform: scale(1) rotate(0);
+    }
+    100%{
+        transform: scale(0) rotate(2880);
+    }
+}
+
+
