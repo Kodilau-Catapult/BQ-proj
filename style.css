@@ -9,10 +9,17 @@ p{
 }
 
 
-.title-page{
-    display: block;
+.title-page {
+    /* No animation by default */
 }
 
+.shrink-spin {
+    animation: shrink 1s ease forwards;
+}
+
+.grow-spin{
+    animation: grow 1s ease forwards;
+}
 .title{
     font-family: 'Comic Sans MS', cursive;
     font-size: 100px;
@@ -21,6 +28,7 @@ p{
     display:flex;
     justify-content: center;
     text-align: center;
+    
 }
 
 .filler{
@@ -41,6 +49,24 @@ p{
     left: 45vw;
 }
 
+.startbutton:hover{
+    animation: shadow 1s ease 1;
+}
+
+@keyframes shadow {
+
+0%{
+    box-shadow: 0px 0px black;
+    transform:translate(0px, 0px);
+}
+
+100%{
+    box-shadow: 5px 5px black;
+    transform:translate(-5px, -5px);
+}
+
+}
+
 .question{
     display: block;
     font-family: comic sans-serif;
@@ -52,7 +78,7 @@ p{
     border: 2px solid salmon;
     border-radius: 10px;
     text-align: center;
-    padding: 75px;
+    padding: 55px;
     flex: 1;
     object-fit:cover;
     margin: 10px;
@@ -72,8 +98,8 @@ p{
 }
 
 .image{
-    width: 35vw;
-    height: 35vh;
+    width: 30vw;
+    height: 20vh;
 }
 
 .qset{
@@ -108,26 +134,75 @@ p{
     font-size: 5px;
 }
 
-
-
-
 .result-page{
 display: none;
 }
 
 
-
-
-
-
-@keyframes shrink
-{
-    0%{
-        transform: scale(1) rotate(0);
+@keyframes shrink {
+    0% {
+        transform: scale(1) rotate(0deg);
     }
-    100%{
-        transform: scale(0) rotate(2880);
+    100% {
+        transform: scale(0) rotate(2880deg); /* 8 full spins */
     }
 }
 
 
+
+@keyframes grow {
+    0% {
+        transform: scale(0) rotate(2880deg);
+    }
+    100% {
+        transform: scale(1) rotate(0deg); /* 8 full spins */
+    }
+}
+
+.stylebutton{
+position: absolute;
+background-color: chartreuse;
+bottom: 50vh;
+right: 0;
+color: black;
+}
+
+.reveal{
+    font-family: 'Comic Sans MS', cursive;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    border: 1px solid black;
+    bottom: 20vh;
+
+}
+
+.star{
+    width: 100vw;
+    height: 40vh
+}
+
+.resetbutton{
+display: none;
+position: absolute;
+background-color: red;
+bottom: 20vh;
+right: 48vw;
+color: whitesmoke;
+border: solid 1px black;
+padding: 4px;
+text-align: center;
+border-radius: 1px;
+animation: appear 1s ease 1;
+}
+
+@keyframes appear{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

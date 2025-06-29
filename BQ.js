@@ -8,9 +8,8 @@ let option1 = document.querySelector(".option1");
 let option2 = document.querySelector(".option2");
 let option3 = document.querySelector(".option3");
 let option4 = document.querySelector(".option4");
-
-
-
+let toggleButton = document.querySelector(".stylebutton");
+let toggle = false;
 //point system
 
 let counter1=0;
@@ -38,6 +37,49 @@ fillers.forEach(filler => {
     filler.style.left = Math.floor(Math.random() * 1300) + "px";
 });
 
+const colorwheel = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
+colorIndex = 0;
+setInterval(function(colorchange){
+    if(toggle === true)
+    {
+    if (colorIndex >= colorwheel.length)
+    {
+        colorIndex = 0;
+    }
+    else{
+    document.querySelector(".title").style.color = colorwheel[colorIndex]
+    console.log("color has been changed")
+    colorIndex++;
+    }
+
+fillers.forEach(filler => {
+    filler.style.top = (Math.floor(Math.random() * 250 + 500)) + "px";
+    filler.style.left = Math.floor(Math.random() * 950) + "px";
+});
+
+
+    }
+    else{}
+}, 100);
+
+
+toggleButton.addEventListener("click", function(){
+if(toggle ===true)
+{
+toggle = false;
+ document.querySelector(".title").style.color = "black"
+}
+else
+{
+toggle = true;
+}
+console.log("anyeurusm")
+});
+
+
+
+
+
 
 
 startbutton.addEventListener("click", function(){
@@ -46,7 +88,10 @@ document.querySelector(".title-page").style.display = "none";
 document.querySelector(".qset1").style.display = "flex";
 
 })
-// ...existing code...
+
+// Add this to your JS file or in a <script> tag
+//document.querySelector('.title-page').classList.add('shrink-spin');
+
 
 // Attach event listeners to all option1 buttons
 document.querySelectorAll('.option1').forEach(option1 => {
@@ -108,10 +153,11 @@ document.querySelectorAll('.option4').forEach(option4 => {
     });
 });
 
+
 document.querySelectorAll('.submit').forEach(submitBtn => {
     submitBtn.addEventListener("click", function() {
         if (submited === true) {
-            document.querySelector(`.qset${qIndex}`).style.animation = "shrink 1s ease";
+            document.querySelector(`.qset${qIndex}`).classList.add('shrink-spin');
             
         setTimeout(function() {
 
@@ -140,6 +186,7 @@ document.querySelectorAll('.submit').forEach(submitBtn => {
 
 
 //random position maker 
+
 document.addEventListener("click", function(){
 
 fillers.forEach(filler => {
@@ -168,8 +215,22 @@ document.querySelector('.reveal').addEventListener('click', function() {
     if (resultImg) {
     
         resultImg.style.display = "block";
+        resultImg.classList.add('grow-spin');
+
         document.querySelector(".result-page").style.display = "none";
         resultImg.style.height = "100vh";
         resultImg.style.width = "100vw";
+
+        setTimeout(function(){
+        document.querySelector(".resetbutton").style.display = "block"
+        }, 1500)
     }
+
+
 });
+
+document.querySelector(".resetbutton").addEventListener("click", function(){
+window.location.reload();
+})
+
+
